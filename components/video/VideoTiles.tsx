@@ -29,29 +29,21 @@ const state = proxy({
 } as any);
 
 export default function VideoTiles({ videos }: { videos: Array<string> }) {
-  if (!videos.length) {
-    return "Loading...";
-  }
-
   const calcHeight = "calc(100vh - 128px)";
-
-  if (!videos.length) {
-    return <div className="animate-spin" />;
-  }
 
   useEffect(() => {
     state.videos = videos;
-  }, []);
+  }, [videos]);
 
-  /* DEBUG */
-  // const controls = useControls({
-  //   color: "#fff",
-  // });
+  if (!videos.length) {
+    return "Loading...";
+  }
 
   return (
     <div className="w-screen overflow-hidden" style={{ height: calcHeight }}>
       <Canvas className="absolute w-screen">
         <color attach="background" args={["#171512"]} />
+        <ambientLight intensity={10} />
         <Items />
       </Canvas>
     </div>
@@ -112,8 +104,6 @@ function Item({
   const [hovered, hover] = useState(false);
 
   const click = () => {
-    console.log(clicked);
-    console.log(index);
     clicked === index ? texture.image.pause() : texture.image.play();
     state.clicked = index === clicked ? null : index;
   };
@@ -182,7 +172,7 @@ function Item({
         ref.current.material.grayscale = damp(
           ref.current.material.grayscale,
           hovered || clicked === index ? 0 : Math.max(0, 1 - y),
-          6,
+          3,
           delta,
         );
         ref.current.material.color.lerp(
@@ -260,30 +250,5 @@ function Items({ w = 0.7, gap = 0.15 }) {
         ))}
       </Scroll>
     </ScrollControls>
-  );
-}
-
-function VideoMaterial({ src, setVideo }) {
-  const { pause, toggleAudio } = useSnapshot(state);
-  const texture = useVideoTexture(src);
-
-  setVideo?.(texture.image);
-
-  useEffect(() => {
-    if (pause === true) {
-      texture.image.pause();
-    } else {
-      texture.image.play();
-    }
-  }, [pause, toggleAudio]);
-
-  return (
-    <meshStandardMaterial
-      side={THREE.DoubleSide}
-      map={texture}
-      toneMapped={false}
-      transparent
-      opacity={0.9}
-    />
   );
 }

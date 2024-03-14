@@ -1,5 +1,6 @@
 import VideoTiles from "@/components/video/VideoTiles";
 import { getAllVideos } from "@/lib/api";
+import styles from "./styles.module.css";
 
 async function getVideos() {
   const spaceId = "4nwbvve7a2v0";
@@ -16,9 +17,8 @@ export default async function Video() {
   const allVideos = await getAllVideos();
 
   return (
-    <>
-      <div></div>
+    <div className={styles.video}>
       <VideoTiles videos={allVideos} />
-    </>
+    </div>
   );
 }
