@@ -26,9 +26,9 @@ const state = proxy({
   videos: [],
   pause: false,
   toggleAudio: true,
-} as any);
+});
 
-export default function VideoTiles({ videos }: { videos: Array<string> }) {
+export default function VideoTiles({ videos }) {
   const calcHeight = "calc(100vh - 128px)";
 
   useEffect(() => {
@@ -90,13 +90,6 @@ function Item({
   url,
   assets,
   ...props
-}: {
-  index: number;
-  position: Vector3;
-  scale: Vector3 | any;
-  c?: Color;
-  url: string;
-  assets: Array<any>;
 }) {
   const ref = useRef();
   const scroll = useScroll();
@@ -221,6 +214,7 @@ function Item({
       onClick={click}
       onPointerOver={over}
       onPointerOut={out}
+      alt="image"
     />
   );
 }
@@ -238,7 +232,7 @@ function Items({ w = 0.7, gap = 0.15 }) {
     >
       <Minimap />
       <Scroll>
-        {videos.map((video: any, i: number) => (
+        {videos.map((video, i) => (
           <Item
             key={i}
             index={i}
