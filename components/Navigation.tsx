@@ -77,7 +77,7 @@ export default function Navigation() {
               className="text-2xl font-semibold capitalize"
               onClick={handleLayloMobile}
             >
-              Laylo
+              Join the Team
             </button>
           </ul>
         </nav>
@@ -101,7 +101,7 @@ export default function Navigation() {
           className="font-semibold capitalize xl:text-2xl"
           onClick={toggleOverlay}
         >
-          Laylo
+          Join the Team
         </button>
       </nav>
     </>
