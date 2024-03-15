@@ -28,7 +28,7 @@ export default function Navigation() {
       </div>
 
       {showNav && (
-        <nav className="absolute left-0 top-0 flex h-screen w-screen flex-col items-center justify-center gap-10 bg-black">
+        <nav className="animate-slideInDown absolute left-0 top-0 flex h-screen w-screen flex-col items-center justify-center gap-10 bg-black">
           <div className="absolute right-4 top-4">
             <XMarkIcon
               className="w-8"
