@@ -1,7 +1,14 @@
+import Circuit from "@/components/icons/Circuit";
+
 export default function Tour() {
   return (
     <main className="flex flex-col items-center justify-stretch gap-20 px-5 pt-10 lg:px-40 xl:pt-16">
-      <h1 className="uppercase xl:text-6xl">Upcoming Shows</h1>
+      <div className="flex gap-2.5">
+        <h1 className="font-moki self-end uppercase xl:text-6xl">
+          Upcoming Shows
+        </h1>
+        <Circuit />
+      </div>
       <div className="flex w-full flex-col items-stretch gap-16">
         <div className="flex items-start justify-between md:items-center">
           {/* Desktop */}
