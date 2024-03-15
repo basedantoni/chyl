@@ -35,6 +35,10 @@ export default function VideoTiles({ videos }) {
     state.videos = videos;
   }, [videos]);
 
+  if (!videos) {
+    return "Loading...";
+  }
+
   if (!videos.length) {
     return "Loading...";
   }
