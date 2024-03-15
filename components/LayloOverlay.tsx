@@ -14,7 +14,7 @@ export default function LayloOverlay() {
           className="absolute right-0 top-0 h-16 cursor-pointer bg-white stroke-black hover:bg-black hover:stroke-white"
         />
         <iframe
-          className="w-1/4"
+          className="w-3/4 md:w-1/4"
           src="https://laylo.com/chyl/profile/embed"
           width="100%"
           height="580"

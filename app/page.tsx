@@ -1,6 +1,9 @@
 export default function Home() {
   return (
     <main>
+      <h1 className="font-moki absolute top-20 z-50 w-full text-center text-7xl">
+        CHYL
+      </h1>
       <video
         playsInline
         autoPlay

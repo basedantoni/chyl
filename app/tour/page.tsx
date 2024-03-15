@@ -1,13 +1,19 @@
-import Circuit from "@/components/icons/Circuit";
+import Image from "next/image";
 
 export default function Tour() {
   return (
-    <main className="flex flex-col items-center justify-stretch gap-20 px-5 pt-10 lg:px-40 xl:pt-16">
+    <main className="flex flex-col items-center justify-stretch gap-20 px-5 pt-20 lg:px-40 lg:pt-10 xl:pt-16">
       <div className="flex gap-2.5">
         <h1 className="font-moki self-end uppercase xl:text-6xl">
           Upcoming Shows
         </h1>
-        <Circuit />
+        <Image
+          className="w-7 xl:w-24"
+          src="/svg/circuit.svg"
+          width={96}
+          height={96}
+          alt="cover"
+        />
       </div>
       <div className="flex w-full flex-col items-stretch gap-16">
         <div className="flex items-start justify-between md:items-center">
