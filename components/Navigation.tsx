@@ -44,7 +44,7 @@ export default function Navigation() {
               onClick={() => setShowNav((previous) => !previous)}
             />
           </div>
-          <ul className="flex flex-col gap-10">
+          <ul className="flex flex-col items-center gap-10">
             <Link
               className="text-2xl font-semibold capitalize"
               href="/music"
