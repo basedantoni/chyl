@@ -7,7 +7,7 @@ import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
 export default function Navigation() {
-  const { toggleOverlay } = useOverlay();
+  const { toggleOverlay, isOverlayVisible } = useOverlay();
   const [showNav, setShowNav] = useState(false);
 
   const handleLayloMobile = () => {
@@ -20,55 +20,66 @@ export default function Navigation() {
       <LayloOverlay />
 
       {/* MOBILE */}
-      <div className="absolute right-4 top-4 md:hidden">
-        <Bars3Icon
-          className="w-8"
-          onClick={() => setShowNav((previous) => !previous)}
-        />
-      </div>
+      {!isOverlayVisible && (
+        <div className="absolute right-4 top-4 md:hidden">
+          <Bars3Icon
+            className="w-8"
+            onClick={() => setShowNav((previous) => !previous)}
+          />
+        </div>
+      )}
 
       {showNav && (
-        <nav className="animate-slideInDown absolute left-0 top-0 flex h-screen w-screen flex-col items-center justify-center gap-10 bg-black">
+        <nav className="animate-slideInDown absolute left-0 top-0 flex h-screen w-screen flex-col items-center justify-center bg-black">
+          <Link
+            className="font-moki absolute top-20 w-full text-center text-7xl"
+            href="/"
+            onClick={() => setShowNav((previous) => !previous)}
+          >
+            CHYL
+          </Link>
           <div className="absolute right-4 top-4">
             <XMarkIcon
               className="w-8"
               onClick={() => setShowNav((previous) => !previous)}
             />
           </div>
-          <Link
-            className="text-2xl font-semibold capitalize"
-            href="/music"
-            onClick={() => setShowNav((previous) => !previous)}
-          >
-            Music
-          </Link>
-          <Link
-            className="text-2xl font-semibold capitalize"
-            href="/tour"
-            onClick={() => setShowNav((previous) => !previous)}
-          >
-            Tour
-          </Link>
-          <Link
-            className="text-2xl font-semibold capitalize"
-            href="/video"
-            onClick={() => setShowNav((previous) => !previous)}
-          >
-            Video
-          </Link>
-          <Link
-            className="text-2xl font-semibold capitalize"
-            href="/"
-            onClick={() => setShowNav((previous) => !previous)}
-          >
-            Store
-          </Link>
-          <button
-            className="text-2xl font-semibold capitalize"
-            onClick={handleLayloMobile}
-          >
-            Laylo
-          </button>
+          <ul className="flex flex-col gap-10">
+            <Link
+              className="text-2xl font-semibold capitalize"
+              href="/music"
+              onClick={() => setShowNav((previous) => !previous)}
+            >
+              Music
+            </Link>
+            <Link
+              className="text-2xl font-semibold capitalize"
+              href="/tour"
+              onClick={() => setShowNav((previous) => !previous)}
+            >
+              Tour
+            </Link>
+            <Link
+              className="text-2xl font-semibold capitalize"
+              href="/video"
+              onClick={() => setShowNav((previous) => !previous)}
+            >
+              Video
+            </Link>
+            <Link
+              className="text-2xl font-semibold capitalize"
+              href="/"
+              onClick={() => setShowNav((previous) => !previous)}
+            >
+              Store
+            </Link>
+            <button
+              className="text-2xl font-semibold capitalize"
+              onClick={handleLayloMobile}
+            >
+              Laylo
+            </button>
+          </ul>
         </nav>
       )}
 
