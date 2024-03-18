@@ -3,6 +3,7 @@ import LayloProvider from "@/context/LayloProvider";
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import VideoProvider from "@/context/VideoProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 const space = Space_Grotesk({
@@ -24,10 +25,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} ${space.className}`}>
-        <LayloProvider>
-          {children}
-          <Navigation />
-        </LayloProvider>
+        <VideoProvider>
+          <LayloProvider>
+            {children}
+            <Navigation />
+          </LayloProvider>
+        </VideoProvider>
       </body>
     </html>
   );
