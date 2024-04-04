@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: "Moki";
-  src: url("../public/fonts/Moki.otf") format("otf");
+  src: url("../public/fonts/moki-base.ttf") format("ttf");
 }
 
 :root {
