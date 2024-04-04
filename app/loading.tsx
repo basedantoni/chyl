@@ -25,7 +25,7 @@ export default function Loading() {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="text-8xl font-bold text-blue-600">
+      <div className="text-8xl font-bold text-white">
         {progress.toFixed(0)}%
       </div>
     </div>
