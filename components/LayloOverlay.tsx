@@ -2,6 +2,7 @@
 
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useOverlay } from "@/context/LayloProvider";
+import Socials from "./Socials";
 
 export default function LayloOverlay() {
   const { isOverlayVisible, toggleOverlay } = useOverlay();
@@ -20,6 +21,9 @@ export default function LayloOverlay() {
           height="580"
           allowTransparency={true}
         ></iframe>
+        <div className="absolute text-white">
+          <Socials />
+        </div>
       </div>
     );
   } else {
