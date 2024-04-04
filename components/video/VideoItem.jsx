@@ -2,8 +2,10 @@ import * as THREE from "three";
 import { useRef, useState, Suspense } from "react";
 import { Image, useScroll, useVideoTexture } from "@react-three/drei";
 
+
 import { useFrame } from "@react-three/fiber";
 import { useVideoContext } from "@/context/VideoProvider";
+import { useMediaQuery } from 'usehooks-ts'
 
 export default function VideoItem({
   index,
@@ -100,7 +102,11 @@ export default function VideoItem({
     }
   });
 
-  const texture = useVideoTexture(assets[0].url);
+  const matches = useMediaQuery('(min-width: 768px)')
+
+  const texture = useVideoTexture(matches ? assets[0].url : assets[1].url, {
+    preload: true,
+  });
 
   if (clickedVideoIdx === index) {
     const x = position[0];

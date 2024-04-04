@@ -5,10 +5,14 @@ import { Video } from "@/types";
 import { Canvas } from "@react-three/fiber";
 
 import { useVideoContext } from "@/context/VideoProvider";
+import { useEffect } from "react";
 
 export default function VideoTiles({ videos }: { videos: Array<Video> }) {
   const { handleSetVideos } = useVideoContext();
-  handleSetVideos(videos);
+
+  useEffect(() => {
+    handleSetVideos(videos);
+  }, [videos, handleSetVideos]);
 
   const calcHeight = "calc(100vh - 128px)";
 
