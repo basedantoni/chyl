@@ -9,10 +9,19 @@ export default function Home() {
         autoPlay
         muted
         loop
-        // poster="/img/test-music.png"
-        className="fixed left-0 top-0 -z-10 h-screen w-screen object-cover object-bottom"
+        className="hidden sm:block fixed left-0 top-0 -z-10 h-screen w-screen object-cover object-bottom"
       >
         <source src="/video/landing.mp4" type="video/mp4" />
+      </video>
+
+      <video
+        playsInline
+        autoPlay
+        muted
+        loop
+        className="sm:hidden fixed left-0 top-0 -z-10 h-screen w-screen object-cover object-bottom"
+      >
+        <source src="/video/landing-mobile.mp4" type="video/mp4" />
       </video>
     </main>
   );
