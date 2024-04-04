@@ -2,13 +2,13 @@ import Image from "next/image";
 
 export default function Tour() {
   return (
-    <main className="flex flex-col items-center justify-stretch gap-20 px-5 pt-20 lg:px-40 lg:pt-10 xl:pt-16">
+    <main className="flex flex-col items-center justify-stretch gap-20 px-5 pt-24 lg:px-40 lg:pt-10 xl:pt-16">
       <div className="flex gap-2.5">
-        <h1 className="font-moki self-end uppercase xl:text-6xl">
+        <h1 className="font-moki self-end uppercase text-2xl xl:text-6xl">
           Upcoming Shows
         </h1>
         <Image
-          className="w-7 xl:w-24"
+          className="w-12 xl:w-24"
           src="/svg/circuit.svg"
           width={96}
           height={96}
