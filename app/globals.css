@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
 @font-face {
   font-family: "Moki";
   src: url("../public/fonts/Moki.otf") format("otf");
@@ -38,8 +44,9 @@ p {
   font-family: var(--font-space-grotesk);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+* {
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
 }
