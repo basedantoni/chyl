@@ -33,7 +33,7 @@ export default function Navigation() {
       {showNav && (
         <nav className="animate-slideInDown absolute left-0 top-0 flex h-screen w-screen gap-24 flex-col items-center justify-center bg-black">
           <Link
-            className="font-moki absolute top-24 w-full text-center text-7xl"
+            className="font-moki absolute top-24 w-full text-center text-5xl"
             href="/"
             onClick={() => setShowNav((previous) => !previous)}
           >
@@ -73,7 +73,7 @@ export default function Navigation() {
               href="/"
               onClick={() => setShowNav((previous) => !previous)}
             >
-              Store
+              Merch
             </Link>
             <button
               className="text-2xl font-semibold capitalize"
@@ -99,7 +99,7 @@ export default function Navigation() {
           Video
         </Link>
         <Link className="font-semibold capitalize xl:text-2xl" href="/">
-          Store
+          Merch
         </Link>
         <button
           className="font-semibold capitalize xl:text-2xl"
