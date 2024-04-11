@@ -27,8 +27,7 @@ export default function VideoTiles({ videos }: { videos: Array<Video> }) {
   return (
     <div className="w-screen overflow-hidden" style={{ height: calcHeight }}>
       <Canvas className="absolute w-screen">
-        {/* <color attach="background" args={["#171512"]} /> */}
-        <ambientLight intensity={10} />
+        <ambientLight intensity={3} />
         <VideoItems />
       </Canvas>
     </div>

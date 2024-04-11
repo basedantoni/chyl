@@ -2,10 +2,9 @@ import * as THREE from "three";
 import { useRef, useState, Suspense } from "react";
 import { Image, useScroll, useVideoTexture } from "@react-three/drei";
 
-
 import { useFrame } from "@react-three/fiber";
 import { useVideoContext } from "@/context/VideoProvider";
-import { useMediaQuery } from 'usehooks-ts'
+import { useMediaQuery } from "usehooks-ts";
 
 export default function VideoItem({
   index,
@@ -37,7 +36,7 @@ export default function VideoItem({
   useFrame((state, delta) => {
     const y = scroll.curve(
       index / videos.length - 1.5 / videos.length,
-      4 / videos.length,
+      4 / videos.length
     );
 
     if (ref) {
@@ -46,63 +45,63 @@ export default function VideoItem({
           ref.current.scale.y,
           clickedVideoIdx === index ? 4.5 : 3 + y,
           8,
-          delta,
+          delta
         );
         ref.current.scale[0] = ref.current.scale.x = damp(
           ref.current.scale.x,
           clickedVideoIdx === index ? 4.7 : scale[0],
           6,
-          delta,
+          delta
         );
       } else {
         ref.current.material.scale[1] = ref.current.scale.y = damp(
           ref.current.scale.y,
           clickedVideoIdx === index ? 4.5 : 3 + y,
           8,
-          delta,
+          delta
         );
         ref.current.material.scale[0] = ref.current.scale.x = damp(
           ref.current.scale.x,
           clickedVideoIdx === index ? 4.7 : scale[0],
           6,
-          delta,
+          delta
         );
         if (clickedVideoIdx !== null && index < clickedVideoIdx)
           ref.current.position.x = damp(
             ref.current.position.x,
             position[0] - 2,
             6,
-            delta,
+            delta
           );
         if (clickedVideoIdx !== null && index > clickedVideoIdx)
           ref.current.position.x = damp(
             ref.current.position.x,
             position[0] + 2,
             6,
-            delta,
+            delta
           );
         if (clickedVideoIdx === null || clickedVideoIdx === index)
           ref.current.position.x = damp(
             ref.current.position.x,
             position[0],
             6,
-            delta,
+            delta
           );
         ref.current.material.grayscale = damp(
           ref.current.material.grayscale,
           hovered || clickedVideoIdx === index ? 0 : Math.max(0, 1 - y),
           3,
-          delta,
+          delta
         );
         ref.current.material.color.lerp(
           c.set(hovered || clickedVideoIdx === index ? "white" : "#aaa"),
-          hovered ? 0.3 : 0.1,
+          hovered ? 0.3 : 0.1
         );
       }
     }
   });
 
-  const matches = useMediaQuery('(min-width: 768px)')
+  const matches = useMediaQuery("(min-width: 768px)");
 
   const texture = useVideoTexture(matches ? assets[0].url : assets[1].url, {
     preload: true,
@@ -112,6 +111,7 @@ export default function VideoItem({
     const x = position[0];
     const y = position[1];
 
+    console.log(scale);
     return (
       <mesh
         ref={ref}
