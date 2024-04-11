@@ -1,3 +1,5 @@
+import { cookies } from "next/headers";
+
 const POST_GRAPHQL_FIELDS = `
   title
 `;
@@ -13,7 +15,7 @@ async function fetchGraphQL(query: string): Promise<any> {
       },
       body: JSON.stringify({ query }),
       next: { tags: ["posts"] },
-    },
+    }
   ).then((response) => response.json());
 }
 
@@ -52,7 +54,41 @@ export async function getAllVideos(): Promise<any[]> {
           }
         }
       }
-    }`,
+    }`
   );
   return extractVideoEntries(entries);
+}
+
+export async function fetchSpotifyToken(): Promise<any> {
+  return fetch(`https://accounts.spotify.com/api/token`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `grant_type=client_credentials&client_id=${process.env.SPOTIFY_CLIENT_ID}&client_secret=${process.env.SPOTIFY_CLIENT_SECRET}`,
+  }).then((response) => response.json());
+}
+
+export async function fetchArtist(
+  artistId: string,
+  token: string
+): Promise<any> {
+  return fetch(`https://api.spotify.com/v1/artists/${artistId}`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((response) => response.json());
+}
+
+export async function fetchArtistAlbums(token: string): Promise<any> {
+  return fetch(
+    `https://api.spotify.com/v1/artists/${process.env.CHYL_SPOTIFY_ARTIST_ID}/albums?include_groups=single,album&limit=50`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  ).then((response) => response.json());
 }
