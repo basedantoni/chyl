@@ -18,12 +18,14 @@ export default function VideoItem({
   const damp = THREE.MathUtils.damp;
   const ref = useRef();
   const scroll = useScroll();
-  const { clickedVideoIdx, handleVideoClicked, videos } = useVideoContext();
+  const { clickedVideoIdx, handleVideoClicked, handleSetCurrentVideo, videos } =
+    useVideoContext();
   const [hovered, hover] = useState(false);
 
   const click = () => {
     clickedVideoIdx === index ? texture.image.pause() : texture.image.play();
     handleVideoClicked(index === clickedVideoIdx ? null : index);
+    handleSetCurrentVideo(videos[index]);
   };
   const videoClick = () => {
     if (clickedVideoIdx === index) texture.image.pause();
@@ -103,7 +105,7 @@ export default function VideoItem({
 
   const matches = useMediaQuery("(min-width: 768px)");
 
-  const texture = useVideoTexture(matches ? assets[0].url : assets[1].url, {
+  const texture = useVideoTexture(assets[0].url, {
     preload: true,
   });
 
