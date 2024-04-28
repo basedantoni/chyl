@@ -1,6 +1,6 @@
 export interface Video {
   title?: string;
-  url?: string | null;
+  url: string;
   thumbnail?: Thumbnail;
   assetCollection?: { items: Array<Asset> };
 }

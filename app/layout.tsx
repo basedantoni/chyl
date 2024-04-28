@@ -28,7 +28,6 @@ export default function RootLayout({
         <VideoProvider>
           <LayloProvider>
             {children}
-            <Navigation />
           </LayloProvider>
         </VideoProvider>
       </body>
