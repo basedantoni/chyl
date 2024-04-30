@@ -11,8 +11,8 @@
 @font-face {
   font-family: "Moki";
   src: url("../public/fonts/moki-base.ttf") format("ttf"),
-        url("../public/fonts/moki-base.woff2") format("woff2"),
-        url("../public/fonts/moki-base.woff") format("woff");
+    url("../public/fonts/moki-base.woff2") format("woff2"),
+    url("../public/fonts/moki-base.woff") format("woff");
 }
 
 :root {
@@ -51,4 +51,36 @@ p {
 }
 ::-webkit-scrollbar {
   display: none;
+}
+
+.marquee {
+  --gap: 4rem;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--gap);
+}
+
+.marquee__content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  gap: var(--gap);
+  min-width: 100%;
+  animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+/* Enable animation */
+.enable-animation .marquee__content {
+  animation: scroll 24s linear infinite;
 }
