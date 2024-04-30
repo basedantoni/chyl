@@ -29,7 +29,10 @@ export default function VideoProvider({
 }>) {
   const [clickedVideoIdx, setIsClickedVideo] = useState(0);
   const [videos, setVideos] = useState<Array<Video>>([]);
-  const [currentVideo, setCurrentVideo] = useState<Video>({});
+  const [currentVideo, setCurrentVideo] = useState<Video>({
+    title: undefined,
+    url: "/video/landing.mp4",
+  });
 
   const handleVideoClicked = (videoIdx: number) => {
     setIsClickedVideo(videoIdx);
