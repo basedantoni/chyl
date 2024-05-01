@@ -25,7 +25,7 @@ export default function VideoBackground({ videos }: Props) {
           />
         )}
       </div>
-      <div className="absolute bottom-0 marquee">
+      <div className="absolute bottom-0 marquee enable-animation hover:pause">
         <ul className="marquee__content text-center font-bold text-9xl uppercase hover:cursor-pointer">
           <Link
             className="hover:text-orange-500"

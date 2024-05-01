@@ -62,12 +62,19 @@ p {
   gap: var(--gap);
 }
 
+.marquee:hover .marquee__content {
+  animation-play-state: paused;
+}
+
 .marquee__content {
   flex-shrink: 0;
   display: flex;
   justify-content: space-around;
   gap: var(--gap);
   min-width: 100%;
+}
+
+.enable__animation {
   animation: scroll 10s linear infinite;
 }
 
