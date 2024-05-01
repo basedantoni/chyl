@@ -9,7 +9,7 @@ export default function Home() {
     { title: "01", url: "/video/landing.mp4" },
   ];
   return (
-    <main className="relative h-screen w-screen overflow-hidden">
+    <main className="relative h-screen w-screen overflow-hidden flex flex-col justify-end">
       {/* <h1 className="font-moki absolute top-20 w-full text-center text-7xl">
         CHYL
       </h1> */}

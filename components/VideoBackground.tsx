@@ -10,7 +10,8 @@ type Props = {
 };
 
 export default function VideoBackground({ videos }: Props) {
-  const [videoUrl, setVideoUrl] = useState<string | null>(null);
+  const defaultVideo = "/video/chyl-letters.mp4";
+  const [videoUrl, setVideoUrl] = useState<string | null>(defaultVideo);
 
   return (
     <>
@@ -25,12 +26,12 @@ export default function VideoBackground({ videos }: Props) {
           />
         )}
       </div>
-      <div className="absolute bottom-0 marquee enable-animation hover:pause">
-        <ul className="marquee__content text-center font-bold text-9xl uppercase hover:cursor-pointer">
+      <div className="marquee enable-animation hover:pause">
+        <ul className="marquee__content text-center font-bold text-[10rem] leading-[8rem] uppercase hover:cursor-pointer">
           <Link
             className="hover:text-orange-500"
             onMouseEnter={() => setVideoUrl(videos[0].url)}
-            onMouseLeave={() => setVideoUrl(null)}
+            onMouseLeave={() => setVideoUrl(defaultVideo)}
             href="/music"
           >
             Music
@@ -38,7 +39,7 @@ export default function VideoBackground({ videos }: Props) {
           <Link
             className="hover:text-orange-500"
             onMouseEnter={() => setVideoUrl(videos[1].url)}
-            onMouseLeave={() => setVideoUrl(null)}
+            onMouseLeave={() => setVideoUrl(defaultVideo)}
             href="/tour"
           >
             Tour
@@ -46,7 +47,7 @@ export default function VideoBackground({ videos }: Props) {
           <Link
             className="hover:text-orange-500"
             onMouseEnter={() => setVideoUrl(videos[2].url)}
-            onMouseLeave={() => setVideoUrl(null)}
+            onMouseLeave={() => setVideoUrl(defaultVideo)}
             href="/video"
           >
             Video
@@ -54,7 +55,7 @@ export default function VideoBackground({ videos }: Props) {
           <Link
             className="hover:text-orange-500"
             onMouseEnter={() => setVideoUrl(videos[3].url)}
-            onMouseLeave={() => setVideoUrl(null)}
+            onMouseLeave={() => setVideoUrl(defaultVideo)}
             href="/music"
           >
             Merch
@@ -63,13 +64,13 @@ export default function VideoBackground({ videos }: Props) {
 
         {/* MIRROR CONTENT */}
         <ul
-          className="marquee__content text-center font-bold text-9xl uppercase hover:cursor-pointer"
+          className="marquee__content text-center font-bold text-[10rem] leading-[8rem] uppercase hover:cursor-pointer"
           aria-hidden="true"
         >
           <Link
             className="hover:text-orange-500"
             onMouseEnter={() => setVideoUrl(videos[0].url)}
-            onMouseLeave={() => setVideoUrl(null)}
+            onMouseLeave={() => setVideoUrl(defaultVideo)}
             href="/music"
           >
             Music
@@ -77,7 +78,7 @@ export default function VideoBackground({ videos }: Props) {
           <Link
             className="hover:text-orange-500"
             onMouseEnter={() => setVideoUrl(videos[1].url)}
-            onMouseLeave={() => setVideoUrl(null)}
+            onMouseLeave={() => setVideoUrl(defaultVideo)}
             href="/tour"
           >
             Tour
@@ -85,7 +86,7 @@ export default function VideoBackground({ videos }: Props) {
           <Link
             className="hover:text-orange-500"
             onMouseEnter={() => setVideoUrl(videos[2].url)}
-            onMouseLeave={() => setVideoUrl(null)}
+            onMouseLeave={() => setVideoUrl(defaultVideo)}
             href="/video"
           >
             Video
@@ -93,7 +94,7 @@ export default function VideoBackground({ videos }: Props) {
           <Link
             className="hover:text-orange-500"
             onMouseEnter={() => setVideoUrl(videos[3].url)}
-            onMouseLeave={() => setVideoUrl(null)}
+            onMouseLeave={() => setVideoUrl(defaultVideo)}
             href="/music"
           >
             Merch
