@@ -1,9 +1,11 @@
 "use client";
 
+import "@/app/globals.css";
 import { Video } from "@/types";
 import { useState } from "react";
-import "@/app/globals.css";
+import { useOverlay } from "@/context/LayloProvider";
 import Link from "next/link";
+import LayloOverlay from "@/components/LayloOverlay";
 
 type Props = {
   videos: Array<Video>;
@@ -12,9 +14,18 @@ type Props = {
 export default function VideoBackground({ videos }: Props) {
   const defaultVideo = "/video/chyl-letters.mp4";
   const [videoUrl, setVideoUrl] = useState<string | null>(defaultVideo);
+  const { toggleOverlay, isOverlayVisible } = useOverlay();
+  const [showNav, setShowNav] = useState(false);
+
+  const handleLayloMobile = () => {
+    setShowNav((previous) => !previous);
+    toggleOverlay();
+  };
 
   return (
     <>
+      <LayloOverlay />
+
       <div className="fixed left-0 top-0 -z-10 h-screen w-screen object-cover object-bottom">
         {videoUrl && (
           <video
@@ -60,6 +71,12 @@ export default function VideoBackground({ videos }: Props) {
           >
             Merch
           </Link>
+          <button
+            className="hover:text-orange-500 uppercase"
+            onClick={toggleOverlay}
+          >
+            Join the Team
+          </button>
         </ul>
 
         {/* MIRROR CONTENT */}
@@ -99,6 +116,12 @@ export default function VideoBackground({ videos }: Props) {
           >
             Merch
           </Link>
+          <button
+            className="hover:text-orange-500 uppercase"
+            onClick={toggleOverlay}
+          >
+            Join the Team
+          </button>
         </ul>
       </div>
     </>
