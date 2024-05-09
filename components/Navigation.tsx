@@ -48,35 +48,35 @@ export default function Navigation() {
           </div>
           <ul className="flex flex-col items-center gap-10">
             <Link
-              className="text-2xl font-semibold capitalize"
+              className="text-2xl font-semibold uppercase"
               href="/music"
               onClick={() => setShowNav((previous) => !previous)}
             >
               Music
             </Link>
             <Link
-              className="text-2xl font-semibold capitalize"
+              className="text-2xl font-semibold uppercase"
               href="/tour"
               onClick={() => setShowNav((previous) => !previous)}
             >
               Tour
             </Link>
             <Link
-              className="text-2xl font-semibold capitalize"
+              className="text-2xl font-semibold uppercase"
               href="/video"
               onClick={() => setShowNav((previous) => !previous)}
             >
               Video
             </Link>
             <Link
-              className="text-2xl font-semibold capitalize"
+              className="text-2xl font-semibold uppercase"
               href="/"
               onClick={() => setShowNav((previous) => !previous)}
             >
               Merch
             </Link>
             <button
-              className="text-2xl font-semibold capitalize"
+              className="text-2xl font-semibold uppercase"
               onClick={handleLayloMobile}
             >
               Join the Team
@@ -89,23 +89,23 @@ export default function Navigation() {
 
       {/* DESKTOP */}
       <nav className="fixed bottom-0 hidden w-full justify-between bg-gradient-to-t from-black md:flex xl:px-24 xl:py-10">
-        <Link className="font-semibold capitalize xl:text-2xl" href="/">
+        <Link className="font-semibold uppercase xl:text-2xl" href="/">
           Home
         </Link>
-        <Link className="font-semibold capitalize xl:text-2xl" href="/music">
+        <Link className="font-semibold uppercase xl:text-2xl" href="/music">
           Music
         </Link>
-        <Link className="font-semibold capitalize xl:text-2xl" href="/tour">
+        <Link className="font-semibold uppercase xl:text-2xl" href="/tour">
           Tour
         </Link>
-        <Link className="font-semibold capitalize xl:text-2xl" href="/video">
+        <Link className="font-semibold uppercase xl:text-2xl" href="/video">
           Video
         </Link>
-        <Link className="font-semibold capitalize xl:text-2xl" href="/">
+        <Link className="font-semibold uppercase xl:text-2xl" href="/">
           Merch
         </Link>
         <button
-          className="font-semibold capitalize xl:text-2xl"
+          className="font-semibold uppercase xl:text-2xl"
           onClick={toggleOverlay}
         >
           Join the Team

@@ -73,6 +73,8 @@ export default function VideoBackground({ videos }: Props) {
           </Link>
           <button
             className="hover:text-orange-500 uppercase"
+            onMouseEnter={() => setVideoUrl(videos[3].url)}
+            onMouseLeave={() => setVideoUrl(defaultVideo)}
             onClick={toggleOverlay}
           >
             Join the Team
@@ -118,6 +120,8 @@ export default function VideoBackground({ videos }: Props) {
           </Link>
           <button
             className="hover:text-orange-500 uppercase"
+            onMouseEnter={() => setVideoUrl(videos[3].url)}
+            onMouseLeave={() => setVideoUrl(defaultVideo)}
             onClick={toggleOverlay}
           >
             Join the Team
