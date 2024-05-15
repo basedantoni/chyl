@@ -22,7 +22,7 @@ export default function Navigation() {
 
       {/* MOBILE */}
       {!isOverlayVisible && (
-        <div className="absolute right-4 top-4 md:hidden">
+        <div className="absolute right-4 top-4 md:hidden z-10">
           <Bars3Icon
             className="w-8"
             onClick={() => setShowNav((previous) => !previous)}
@@ -31,9 +31,9 @@ export default function Navigation() {
       )}
 
       {showNav && (
-        <nav className="animate-slideInDown absolute left-0 top-0 flex h-screen w-screen gap-24 flex-col items-center justify-center bg-black">
+        <nav className="animate-slideInDown absolute left-0 top-0 flex h-screen w-screen gap-24 flex-col items-center justify-center bg-black z-20">
           <Link
-            className="font-moki absolute top-24 w-full text-center text-5xl"
+            className="font-moki absolute top-16 w-full text-center text-5xl"
             href="/"
             onClick={() => setShowNav((previous) => !previous)}
           >

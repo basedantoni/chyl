@@ -27,6 +27,9 @@ export default function RootLayout({
       <body className={`${inter.className} ${space.className}`}>
         <VideoProvider>
           <LayloProvider>
+            <div className='sm:hidden'>
+              <Navigation />
+            </div>
             {children}
           </LayloProvider>
         </VideoProvider>

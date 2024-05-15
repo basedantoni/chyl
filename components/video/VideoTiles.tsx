@@ -31,7 +31,7 @@ export default function VideoTiles({ videos }: { videos: Array<Video> }) {
       style={{ height: calcHeight }}
     >
       {currentVideo && currentVideo.url !== null && (
-        <div className="z-50 px-4 flex justify-center items-center gap-1 absolute bottom-0 mx-auto w-screen text-center">
+        <div className="z-10 px-4 flex justify-center items-center gap-1 absolute bottom-0 mx-auto w-screen text-center">
           <a
             href={
               currentVideo.url ?? "https://www.youtube.com/watch?v=SqK_tpg6-jk"
@@ -39,9 +39,9 @@ export default function VideoTiles({ videos }: { videos: Array<Video> }) {
             className="cursor-pointer hover:underline"
           >
             {currentVideo.title}
-            <span>
+            {currentVideo.title && currentVideo.title !== "" && <span>
               <ExternalLink className="h-4 hover:underline cursor-pointer inline" />
-            </span>
+            </span>}
           </a>
         </div>
       )}
