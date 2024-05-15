@@ -13,6 +13,9 @@ export default function RootLayout({
 }>) {
   return (
     <>
+      <div className="">
+        <Navigation />
+      </div>
       {children}
     </>
   );
