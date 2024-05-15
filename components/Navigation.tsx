@@ -70,7 +70,8 @@ export default function Navigation() {
             </Link>
             <Link
               className="text-2xl font-semibold uppercase"
-              href="/"
+              href="https://chylracing.com/"
+              target='_blank'
               onClick={() => setShowNav((previous) => !previous)}
             >
               Merch
@@ -101,7 +102,7 @@ export default function Navigation() {
         <Link className="font-semibold uppercase xl:text-2xl" href="/video">
           Video
         </Link>
-        <Link className="font-semibold uppercase xl:text-2xl" href="/">
+        <Link className="font-semibold uppercase xl:text-2xl" href="https://chylracing.com/" target='_blank'>
           Merch
         </Link>
         <button

@@ -67,7 +67,8 @@ export default function VideoBackground({ videos }: Props) {
             className="hover:text-orange-500"
             onMouseEnter={() => setVideoUrl(videos[1].videoAsset.url)}
             onMouseLeave={() => setVideoUrl(defaultVideo)}
-            href="/music"
+            target='_blank'
+            href="https://chylracing.com/"
           >
             Merch
           </Link>
@@ -114,7 +115,8 @@ export default function VideoBackground({ videos }: Props) {
             className="hover:text-orange-500"
             onMouseEnter={() => setVideoUrl(videos[1].videoAsset.url)}
             onMouseLeave={() => setVideoUrl(defaultVideo)}
-            href="/music"
+            target='_blank'
+            href="https://chylracing.com/"
           >
             Merch
           </Link>
