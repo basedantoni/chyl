@@ -92,3 +92,23 @@ export async function fetchArtistAlbums(token: string): Promise<any> {
     }
   ).then((response) => response.json());
 }
+
+function extractVisuals(fetchResponse: any): any[] {
+  return fetchResponse?.data?.landingPageVisualsCollection?.items;
+}
+
+export async function getAllLandingVisuals(): Promise<any[]> {
+  const entries = await fetchGraphQL(
+    `query {
+      landingPageVisualsCollection {
+        items {
+          title
+          videoAsset {
+            url
+          }
+        }
+      }
+    }`
+  );
+  return extractVisuals(entries);
+}

@@ -1,14 +1,14 @@
 "use client";
 
 import "@/app/globals.css";
-import { Video } from "@/types";
+import { Visual } from "@/types";
 import { useState } from "react";
 import { useOverlay } from "@/context/LayloProvider";
 import Link from "next/link";
 import LayloOverlay from "@/components/LayloOverlay";
 
 type Props = {
-  videos: Array<Video>;
+  videos: Array<Visual>;
 };
 
 export default function VideoBackground({ videos }: Props) {
@@ -41,7 +41,7 @@ export default function VideoBackground({ videos }: Props) {
         <ul className="marquee__content text-center font-bold text-[10rem] leading-[8rem] uppercase hover:cursor-pointer">
           <Link
             className="hover:text-orange-500"
-            onMouseEnter={() => setVideoUrl(videos[0].url)}
+            onMouseEnter={() => setVideoUrl(videos[4].videoAsset.url)}
             onMouseLeave={() => setVideoUrl(defaultVideo)}
             href="/music"
           >
@@ -49,7 +49,7 @@ export default function VideoBackground({ videos }: Props) {
           </Link>
           <Link
             className="hover:text-orange-500"
-            onMouseEnter={() => setVideoUrl(videos[1].url)}
+            onMouseEnter={() => setVideoUrl(videos[3].videoAsset.url)}
             onMouseLeave={() => setVideoUrl(defaultVideo)}
             href="/tour"
           >
@@ -57,7 +57,7 @@ export default function VideoBackground({ videos }: Props) {
           </Link>
           <Link
             className="hover:text-orange-500"
-            onMouseEnter={() => setVideoUrl(videos[2].url)}
+            onMouseEnter={() => setVideoUrl(videos[2].videoAsset.url)}
             onMouseLeave={() => setVideoUrl(defaultVideo)}
             href="/video"
           >
@@ -65,7 +65,7 @@ export default function VideoBackground({ videos }: Props) {
           </Link>
           <Link
             className="hover:text-orange-500"
-            onMouseEnter={() => setVideoUrl(videos[3].url)}
+            onMouseEnter={() => setVideoUrl(videos[1].videoAsset.url)}
             onMouseLeave={() => setVideoUrl(defaultVideo)}
             href="/music"
           >
@@ -73,7 +73,7 @@ export default function VideoBackground({ videos }: Props) {
           </Link>
           <button
             className="hover:text-orange-500 uppercase"
-            onMouseEnter={() => setVideoUrl(videos[3].url)}
+            onMouseEnter={() => setVideoUrl(videos[0].videoAsset.url)}
             onMouseLeave={() => setVideoUrl(defaultVideo)}
             onClick={toggleOverlay}
           >
@@ -88,7 +88,7 @@ export default function VideoBackground({ videos }: Props) {
         >
           <Link
             className="hover:text-orange-500"
-            onMouseEnter={() => setVideoUrl(videos[0].url)}
+            onMouseEnter={() => setVideoUrl(videos[4].videoAsset.url)}
             onMouseLeave={() => setVideoUrl(defaultVideo)}
             href="/music"
           >
@@ -96,7 +96,7 @@ export default function VideoBackground({ videos }: Props) {
           </Link>
           <Link
             className="hover:text-orange-500"
-            onMouseEnter={() => setVideoUrl(videos[1].url)}
+            onMouseEnter={() => setVideoUrl(videos[3].videoAsset.url)}
             onMouseLeave={() => setVideoUrl(defaultVideo)}
             href="/tour"
           >
@@ -104,7 +104,7 @@ export default function VideoBackground({ videos }: Props) {
           </Link>
           <Link
             className="hover:text-orange-500"
-            onMouseEnter={() => setVideoUrl(videos[2].url)}
+            onMouseEnter={() => setVideoUrl(videos[2].videoAsset.url)}
             onMouseLeave={() => setVideoUrl(defaultVideo)}
             href="/video"
           >
@@ -112,7 +112,7 @@ export default function VideoBackground({ videos }: Props) {
           </Link>
           <Link
             className="hover:text-orange-500"
-            onMouseEnter={() => setVideoUrl(videos[3].url)}
+            onMouseEnter={() => setVideoUrl(videos[1].videoAsset.url)}
             onMouseLeave={() => setVideoUrl(defaultVideo)}
             href="/music"
           >
@@ -120,7 +120,7 @@ export default function VideoBackground({ videos }: Props) {
           </Link>
           <button
             className="hover:text-orange-500 uppercase"
-            onMouseEnter={() => setVideoUrl(videos[3].url)}
+            onMouseEnter={() => setVideoUrl(videos[0].videoAsset.url)}
             onMouseLeave={() => setVideoUrl(defaultVideo)}
             onClick={toggleOverlay}
           >

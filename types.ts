@@ -5,6 +5,11 @@ export interface Video {
   assetCollection?: { items: Array<Asset> };
 }
 
+export interface Visual {
+  title?: string;
+  videoAsset: { url: string };
+}
+
 export interface Thumbnail {
   title: string;
   description: string | null;
