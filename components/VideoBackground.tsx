@@ -25,9 +25,10 @@ export default function VideoBackground({ videos }: Props) {
   return (
     <>
       <LayloOverlay />
+      {/* MOBILE
       <div className='sm:hidden'>
         <video
-          className="fixed top-0 left-0 w-full h-full object-cover blur-bg -z-20"
+          className="fixed top-0 left-0 w-full h-full object-contain blur-bg -z-20"
           autoPlay
           loop
           muted
@@ -35,15 +36,18 @@ export default function VideoBackground({ videos }: Props) {
         >
           <source src={defaultVideo} type="video/mp4" />
         </video>
-      </div>
-      <div className='hidden sm:block'>
+      </div> */}
+
+      {/* DESKTOP */}
+      <div>
         <div className="fixed left-0 top-0 -z-10 h-screen w-screen object-cover object-bottom">
           {videoUrl && (
             <video
               autoPlay
+              playsInline
               muted
               loop
-              className="w-full h-full object-cover"
+              className="w-full h-full sm:object-cover"
               src={videoUrl}
             />
           )}
