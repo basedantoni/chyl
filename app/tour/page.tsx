@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Tour() {
   return (
-    <main className="flex flex-col items-center justify-stretch gap-20 px-5 pt-24 lg:px-40 lg:pt-10 xl:pt-16">
+    <main className="flex flex-col items-center justify-stretch gap-20 px-5 pt-24 lg:px-40 lg:pt-10 xl:pt-16 h-screen">
       <div className="flex gap-2.5">
         <h1 className="hidden sm:block font-moki self-end uppercase text-xl xl:text-6xl">
           Upcoming Shows
@@ -35,7 +35,7 @@ export default function Tour() {
             <p className="max-w-52 overflow-hidden text-ellipsis text-nowrap text-right md:hidden">
               Los Angeles, California
             </p>
-            <button>Get Tickets</button>
+            <button className='hover:text-gray-300'>Get Tickets</button>
           </div>
         </div>
       </div>
