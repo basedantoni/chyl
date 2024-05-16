@@ -12,7 +12,7 @@ export default function LayloOverlay() {
       <>
         <XMarkIcon
           onClick={toggleOverlay}
-          className="absolute right-0 top-0 h-16 cursor-pointer bg-white stroke-black hover:bg-black hover:stroke-white"
+          className="absolute right-0 top-0 h-16 cursor-pointer bg-white stroke-black hover:bg-black hover:stroke-white z-20"
         />
         <div className="absolute left-0 top-24 flex h-screen w-screen items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm z-10">
           <iframe
