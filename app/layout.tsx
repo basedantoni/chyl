@@ -1,5 +1,4 @@
 import Navigation from "@/components/Navigation";
-import Watermark from "@/components/Watermark";
 import LayloProvider from "@/context/LayloProvider";
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
@@ -26,7 +25,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} ${space.className}`}>
-        <Watermark />
         <VideoProvider>
           <LayloProvider>
             <div className='sm:hidden'>
