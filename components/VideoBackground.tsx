@@ -4,6 +4,7 @@ import "@/app/globals.css";
 import { Visual } from "@/types";
 import { useState } from "react";
 import { useOverlay } from "@/context/LayloProvider";
+import { useMediaQuery } from "usehooks-ts";
 import Link from "next/link";
 import LayloOverlay from "@/components/LayloOverlay";
 
@@ -16,6 +17,7 @@ export default function VideoBackground({ videos }: Props) {
   const [videoUrl, setVideoUrl] = useState<string | null>(defaultVideo);
   const { toggleOverlay, isOverlayVisible } = useOverlay();
   const [showNav, setShowNav] = useState(false);
+  const matches = useMediaQuery("(min-width: 426px)");
 
   const handleLayloMobile = () => {
     setShowNav((previous) => !previous);
@@ -24,7 +26,7 @@ export default function VideoBackground({ videos }: Props) {
 
   return (
     <>
-      <LayloOverlay />
+      {matches && <LayloOverlay />}
       <div>
         <div className="fixed left-0 top-0 -z-10 h-screen w-screen object-cover object-bottom">
           {videoUrl && (
@@ -39,7 +41,7 @@ export default function VideoBackground({ videos }: Props) {
           )}
         </div>
         <div className="marquee enable-animation hover:pause">
-          <ul className="marquee__content text-center font-bold text-8xl sm:text-[10rem] sm:leading-[8rem] uppercase hover:cursor-pointer">
+          <ul className="marquee__content text-center font-bold text-8xl sm:text-[8rem] sm:leading-[8rem] uppercase hover:cursor-pointer">
             <Link
               className="hover:text-orange-500"
               onMouseEnter={() => setVideoUrl(videos[4].videoAsset.url)}
@@ -85,7 +87,7 @@ export default function VideoBackground({ videos }: Props) {
 
           {/* MIRROR CONTENT */}
           <ul
-            className="marquee__content text-center font-bold text-8xl sm:text-[10rem] sm:leading-[8rem] uppercase hover:cursor-pointer"
+            className="marquee__content text-center font-bold text-8xl sm:text-[8rem] sm:leading-[8rem] uppercase hover:cursor-pointer"
             aria-hidden="true"
           >
             <Link

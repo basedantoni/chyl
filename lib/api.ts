@@ -1,3 +1,4 @@
+import { PlaylistItemResponse, PlaylistResponse } from "@/types";
 import { cookies } from "next/headers";
 
 const POST_GRAPHQL_FIELDS = `
@@ -111,4 +112,22 @@ export async function getAllLandingVisuals(): Promise<any[]> {
     }`
   );
   return extractVisuals(entries);
+}
+
+export async function getYoutubePlaylists(): Promise<PlaylistResponse> {
+  return fetch(
+    `https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=UCZT4Bmn1sti02ccbZxttJXA&maxResults=25&key=${process.env.GOOGLE_API_KEY}`,
+    {
+      method: "GET"
+    }
+  ).then((response) => response.json())
+}
+
+export async function getPlaylistItems(id: string): Promise<PlaylistItemResponse> {
+  return fetch(
+    `https://www.googleapis.com/youtube/v3/playlistItems?key=${process.env.GOOGLE_API_KEY}&maxResults=25&part=snippet%2CcontentDetails&playlistId=${id}`,
+    {
+      method: "GET"
+    }
+  ).then((response) => response.json())
 }

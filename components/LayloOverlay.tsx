@@ -9,24 +9,22 @@ export default function LayloOverlay() {
 
   if (isOverlayVisible) {
     return (
-      <>
+      <div className="absolute flex h-screen w-screen items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm z-20">
         <XMarkIcon
           onClick={toggleOverlay}
-          className="absolute right-0 top-0 h-16 cursor-pointer bg-white stroke-black hover:bg-black hover:stroke-white z-20"
+          className="absolute right-0 top-0 h-16 cursor-pointer bg-white stroke-black hover:bg-black hover:stroke-white z-30"
         />
-        <div className="absolute left-0 top-24 flex h-screen w-screen items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm z-10">
+        <div className="w-full flex flex-col justify-center items-center mt-24">
           <iframe
             className="w-3/4 md:w-1/4"
             src="https://laylo.com/chyl/profile/embed"
             width="100%"
-            height="580"
+            height="300"
             allowTransparency={true}
           ></iframe>
-          <div className="absolute text-white">
-            <Socials />
-          </div>
+          <Socials />
         </div>
-      </>
+      </div>
     );
   } else {
     return <></>;
