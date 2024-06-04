@@ -11,31 +11,41 @@ interface PlaylistSection {
   playlistItem: Item[];
 }
 
-export default async function Video() {
-  const playlists: PlaylistResponse = await getYoutubePlaylists();
-  const playlistSections: Array<PlaylistSection> = [];
-  
-  for (const playlist of playlists.items) {
-    const playlistItems: PlaylistItemResponse = await getPlaylistItems(playlist.id);
-    const validItems = playlistItems.items.filter(item => {
-      const isAvailable = item.contentDetails && item.contentDetails.videoId;
-      const isNotDeleted = item.snippet && !item.snippet.title.includes('Deleted video');
-      const isNotPrivate = item.snippet && !item.snippet.title.includes('Private video');
-      const isNotAgeRestricted = item.snippet.title !== "CHYL - Tokyo Affair (feat. Saitei)";
+async function fetchData(): Promise<PlaylistSection[]> {
+  try {
+    const playlists: PlaylistResponse = await getYoutubePlaylists();
+    const sections: Array<PlaylistSection> = [];
 
-      return isAvailable && isNotDeleted && isNotPrivate && isNotAgeRestricted;
-    });
+    for (const playlist of playlists.items) {
+      const playlistItems: PlaylistResponse = await getPlaylistItems(playlist.id);
+      const validItems = playlistItems.items.filter(item => {
+        const isAvailable = item.contentDetails && item.contentDetails.videoId;
+        const isNotDeleted = item.snippet && !item.snippet.title.includes('Deleted video');
+        const isNotPrivate = item.snippet && !item.snippet.title.includes('Private video');
+        const isNotAgeRestricted = item.snippet.title !== "CHYL - Tokyo Affair (feat. Saitei)";
 
-    if (validItems.length > 0) {
-      playlistSections.push({
-        name: playlist.snippet.title,
-        playlistItem: validItems
+        return isAvailable && isNotDeleted && isNotPrivate && isNotAgeRestricted;
       });
+
+      if (validItems.length > 0) {
+        sections.push({
+          name: playlist.snippet.title,
+          playlistItem: validItems
+        });
+      }
     }
+    return sections;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return [];
   }
+}
+
+export default async function Video() {
+  const playlistSections = await fetchData();
 
   return (
-    <div className="pb-32">
+    <div className={styles.video}>
       <VideoList playlistSections={playlistSections} />
     </div>
   );

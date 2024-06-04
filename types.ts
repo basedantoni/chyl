@@ -45,7 +45,7 @@ export interface Asset extends Thumbnail {}
 export interface PlaylistResponse {
   kind: string
   etag: string
-  pageInfo: PageInfo
+  pageInfo?: PageInfo
   items: Item[]
 }
 
