@@ -71,7 +71,7 @@ export default function VideoBackground({ videos }: Props) {
           )}
         </div>
         <div className="marquee enable-animation hover:pause">
-          <ul className="marquee__content text-center font-bold text-8xl sm:text-7xl uppercase hover:cursor-pointer">
+          <ul className="marquee__content text-center font-bold text-8xl sm:text-8xl uppercase hover:cursor-pointer">
             <Link
               className="hover:text-orange-500 word"
               onMouseEnter={() => setVideoUrl(videos[4].videoAsset.url)}
@@ -133,7 +133,7 @@ export default function VideoBackground({ videos }: Props) {
 
           {/* MIRROR CONTENT */}
           <ul
-            className="marquee__content text-center font-bold text-8xl sm:text-7xl uppercase hover:cursor-pointer"
+            className="marquee__content text-center font-bold text-8xl sm:text-8xl uppercase hover:cursor-pointer"
             aria-hidden="true"
           >
             <Link

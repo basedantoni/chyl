@@ -1,3 +1,4 @@
+import { MoveUpRightIcon } from "lucide-react";
 import Image from "next/image";
 
 export default function Tour() {
@@ -21,7 +22,7 @@ export default function Tour() {
       <div className="flex w-full flex-col items-stretch gap-16">
         <div className="flex items-start justify-between md:items-center">
           {/* Desktop */}
-          <div className="hidden items-center gap-16 font-bold md:flex xl:text-3xl">
+          <div className="hidden items-center gap-16 font-bold md:flex xl:text-xl">
             <p>2024</p>
             <p>Feb 21</p>
             <p>Los Angeles, California</p>
@@ -31,11 +32,11 @@ export default function Tour() {
             <p>2024</p>
             <p>Feb 21</p>
           </div>
-          <div className="flex flex-col items-end font-bold xl:text-3xl">
+          <div className="flex flex-col items-end font-bold xl:text-xl">
             <p className="max-w-52 overflow-hidden text-ellipsis text-nowrap text-right md:hidden">
               Los Angeles, California
             </p>
-            <button className='hover:text-gray-300'>Get Tickets</button>
+            <button className='hover:text-gray-300 flex items-center'><span>Get Tickets</span><MoveUpRightIcon /></button>
           </div>
         </div>
       </div>

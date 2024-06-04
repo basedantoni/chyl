@@ -89,24 +89,24 @@ export default function Navigation() {
       )}
 
       {/* DESKTOP */}
-      <nav className="z-10 fixed bottom-0 hidden w-full justify-between bg-gradient-to-t from-black md:flex xl:px-24 xl:py-10">
-        <Link className="font-semibold uppercase xl:text-4xl" href="/">
+      <nav className="z-10 fixed bottom-0 hidden w-full justify-between bg-gradient-to-t from-black md:flex lg:px-24 lg:py-10">
+        <Link className="font-semibold uppercase md:text-2xl xl:text-4xl" href="/">
           Home
         </Link>
-        <Link className="font-semibold uppercase xl:text-4xl" href="/music">
+        <Link className="font-semibold uppercase md:text-2xl xl:text-4xl" href="/music">
           Music
         </Link>
-        <Link className="font-semibold uppercase xl:text-4xl" href="/tour">
+        <Link className="font-semibold uppercase md:text-2xl xl:text-4xl" href="/tour">
           Tour
         </Link>
-        <Link className="font-semibold uppercase xl:text-4xl" href="/video">
+        <Link className="font-semibold uppercase md:text-2xl xl:text-4xl" href="/video">
           Video
         </Link>
-        <Link className="font-semibold uppercase xl:text-4xl" href="https://chylracing.com/" target='_blank'>
+        <Link className="font-semibold uppercase md:text-2xl xl:text-4xl" href="https://chylracing.com/" target='_blank'>
           Merch
         </Link>
         <button
-          className="font-semibold uppercase xl:text-4xl"
+          className="font-semibold uppercase md:text-2xl xl:text-4xl"
           onClick={toggleOverlay}
         >
           Join the Team
