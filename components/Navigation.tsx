@@ -22,16 +22,16 @@ export default function Navigation() {
 
       {/* MOBILE */}
       {!isOverlayVisible && (
-        <div className="absolute right-4 top-4 md:hidden z-10">
+        <div className="fixed right-4 top-4 md:hidden z-10">
           <Bars3Icon
-            className="w-8"
+            className="w-12"
             onClick={() => setShowNav((previous) => !previous)}
           />
         </div>
       )}
 
       {showNav && (
-        <nav className="animate-slideInDown absolute left-0 top-0 flex h-screen w-screen gap-24 flex-col items-center justify-center bg-black z-20">
+        <nav className="animate-slideInDown fixed left-0 top-0 flex h-screen w-screen gap-24 flex-col items-center justify-center bg-black z-20">
           <Link
             className="font-moki absolute top-16 w-full text-center text-5xl"
             href="/"
