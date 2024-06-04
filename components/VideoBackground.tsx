@@ -2,7 +2,7 @@
 
 import "@/app/globals.css";
 import { Visual } from "@/types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useOverlay } from "@/context/LayloProvider";
 import { useMediaQuery } from "usehooks-ts";
 import Link from "next/link";
@@ -17,6 +17,42 @@ export default function VideoBackground({ videos }: Props) {
   const [videoUrl, setVideoUrl] = useState<string | null>(defaultVideo);
   const { toggleOverlay } = useOverlay();
   const matches = useMediaQuery("(min-width: 426px)");
+
+  useEffect(() => {
+    const textContainers = document.querySelectorAll(".word");
+
+    const defaultScale = 1;
+    const maxScale = 2;
+    const neighborScale = 1.5;
+
+    textContainers.forEach((container) => {
+      const spans = container.querySelectorAll("span");
+
+      container.addEventListener("mousemove", (e) => {
+        const target = e.target as HTMLElement;
+        const index = Array.from(spans).indexOf(target);
+
+        spans.forEach((span, i) => {
+          let scale = defaultScale;
+
+          if (i === index) {
+            scale = maxScale;
+          } else if (i === index - 1 || i === index + 1) {
+            scale = neighborScale;
+          }
+
+          span.style.transform = `scaleY(${scale})`;
+        });
+      });
+
+      container.addEventListener("mouseleave", () => {
+        spans.forEach((span) => {
+          console.log(span)
+          span.style.transform = `scaleY(${defaultScale})`;
+        });
+      });
+    });
+  }, []);
 
   return (
     <>
@@ -37,37 +73,52 @@ export default function VideoBackground({ videos }: Props) {
         <div className="marquee enable-animation hover:pause">
           <ul className="marquee__content text-center font-bold text-8xl sm:text-7xl uppercase hover:cursor-pointer">
             <Link
-              className="hover:text-orange-500"
+              className="hover:text-orange-500 word"
               onMouseEnter={() => setVideoUrl(videos[4].videoAsset.url)}
               onMouseLeave={() => setVideoUrl(defaultVideo)}
               href="/music"
             >
-              Music
+              <span>M</span>
+              <span>u</span>
+              <span>s</span>
+              <span>i</span>
+              <span>c</span>
             </Link>
             <Link
-              className="hover:text-orange-500"
+              className="hover:text-orange-500 word"
               onMouseEnter={() => setVideoUrl(videos[3].videoAsset.url)}
               onMouseLeave={() => setVideoUrl(defaultVideo)}
               href="/tour"
             >
-              Tour
+              <span>T</span>
+              <span>o</span>
+              <span>u</span>
+              <span>r</span>
             </Link>
             <Link
-              className="hover:text-orange-500"
+              className="hover:text-orange-500 word"
               onMouseEnter={() => setVideoUrl(videos[2].videoAsset.url)}
               onMouseLeave={() => setVideoUrl(defaultVideo)}
               href="/video"
             >
-              Video
+              <span>V</span>
+              <span>i</span>
+              <span>d</span>
+              <span>e</span>
+              <span>o</span>
             </Link>
             <Link
-              className="hover:text-orange-500"
+              className="hover:text-orange-500 word"
               onMouseEnter={() => setVideoUrl(videos[1].videoAsset.url)}
               onMouseLeave={() => setVideoUrl(defaultVideo)}
               target='_blank'
               href="https://chylracing.com/"
             >
-              Merch
+              <span>M</span>
+              <span>e</span>
+              <span>r</span>
+              <span>c</span>
+              <span>h</span>
             </Link>
             <button
               className="hover:text-orange-500 uppercase flex flex-col"
@@ -86,37 +137,52 @@ export default function VideoBackground({ videos }: Props) {
             aria-hidden="true"
           >
             <Link
-              className="hover:text-orange-500"
+              className="hover:text-orange-500 word"
               onMouseEnter={() => setVideoUrl(videos[4].videoAsset.url)}
               onMouseLeave={() => setVideoUrl(defaultVideo)}
               href="/music"
             >
-              Music
+              <span>M</span>
+              <span>u</span>
+              <span>s</span>
+              <span>i</span>
+              <span>c</span>
             </Link>
             <Link
-              className="hover:text-orange-500"
+              className="hover:text-orange-500 word"
               onMouseEnter={() => setVideoUrl(videos[3].videoAsset.url)}
               onMouseLeave={() => setVideoUrl(defaultVideo)}
               href="/tour"
             >
-              Tour
+              <span>T</span>
+              <span>o</span>
+              <span>u</span>
+              <span>r</span>
             </Link>
             <Link
-              className="hover:text-orange-500"
+              className="hover:text-orange-500 word"
               onMouseEnter={() => setVideoUrl(videos[2].videoAsset.url)}
               onMouseLeave={() => setVideoUrl(defaultVideo)}
               href="/video"
             >
-              Video
+              <span>V</span>
+              <span>i</span>
+              <span>d</span>
+              <span>e</span>
+              <span>o</span>
             </Link>
             <Link
-              className="hover:text-orange-500"
+              className="hover:text-orange-500 word"
               onMouseEnter={() => setVideoUrl(videos[1].videoAsset.url)}
               onMouseLeave={() => setVideoUrl(defaultVideo)}
               target='_blank'
               href="https://chylracing.com/"
             >
-              Merch
+              <span>M</span>
+              <span>e</span>
+              <span>r</span>
+              <span>c</span>
+              <span>h</span>
             </Link>
             <button
               className="hover:text-orange-500 uppercase flex flex-col"

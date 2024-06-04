@@ -57,7 +57,6 @@ p {
   --gap: 2rem;
   position: relative;
   display: flex;
-  overflow: hidden;
   user-select: none;
   gap: var(--gap);
 }
@@ -73,6 +72,12 @@ p {
   gap: var(--gap);
   min-width: 100%;
   align-items: center;
+}
+
+.word span {
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform-origin: bottom;
 }
 
 @keyframes scroll {
