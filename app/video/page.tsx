@@ -45,7 +45,7 @@ export default async function Video() {
   const playlistSections = await fetchData();
 
   return (
-    <div className={styles.video}>
+    <div className="pb-32">
       <VideoList playlistSections={playlistSections} />
     </div>
   );

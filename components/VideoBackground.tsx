@@ -15,14 +15,8 @@ type Props = {
 export default function VideoBackground({ videos }: Props) {
   const defaultVideo = "/video/chyl-letters.mp4";
   const [videoUrl, setVideoUrl] = useState<string | null>(defaultVideo);
-  const { toggleOverlay, isOverlayVisible } = useOverlay();
-  const [showNav, setShowNav] = useState(false);
+  const { toggleOverlay } = useOverlay();
   const matches = useMediaQuery("(min-width: 426px)");
-
-  const handleLayloMobile = () => {
-    setShowNav((previous) => !previous);
-    toggleOverlay();
-  };
 
   return (
     <>
@@ -41,7 +35,7 @@ export default function VideoBackground({ videos }: Props) {
           )}
         </div>
         <div className="marquee enable-animation hover:pause">
-          <ul className="marquee__content text-center font-bold text-8xl sm:text-[8rem] sm:leading-[8rem] uppercase hover:cursor-pointer">
+          <ul className="marquee__content text-center font-bold text-8xl sm:text-7xl uppercase hover:cursor-pointer">
             <Link
               className="hover:text-orange-500"
               onMouseEnter={() => setVideoUrl(videos[4].videoAsset.url)}
@@ -76,18 +70,19 @@ export default function VideoBackground({ videos }: Props) {
               Merch
             </Link>
             <button
-              className="hover:text-orange-500 uppercase"
+              className="hover:text-orange-500 uppercase flex flex-col"
               onMouseEnter={() => setVideoUrl(videos[0].videoAsset.url)}
               onMouseLeave={() => setVideoUrl(defaultVideo)}
               onClick={toggleOverlay}
             >
-              Join the Team
+              <span className="text-5xl leading-[0.8]">Join</span>
+              <span className="text-2xl leading-[0.8] tracking-tighter">the Team</span>
             </button>
           </ul>
 
           {/* MIRROR CONTENT */}
           <ul
-            className="marquee__content text-center font-bold text-8xl sm:text-[8rem] sm:leading-[8rem] uppercase hover:cursor-pointer"
+            className="marquee__content text-center font-bold text-8xl sm:text-7xl uppercase hover:cursor-pointer"
             aria-hidden="true"
           >
             <Link
@@ -124,12 +119,13 @@ export default function VideoBackground({ videos }: Props) {
               Merch
             </Link>
             <button
-              className="hover:text-orange-500 uppercase"
+              className="hover:text-orange-500 uppercase flex flex-col"
               onMouseEnter={() => setVideoUrl(videos[0].videoAsset.url)}
               onMouseLeave={() => setVideoUrl(defaultVideo)}
               onClick={toggleOverlay}
             >
-              Join the Team
+              <span className="text-5xl leading-[0.8]">Join</span>
+              <span className="text-2xl leading-[0.8] tracking-tighter">the Team</span>
             </button>
           </ul>
         </div>

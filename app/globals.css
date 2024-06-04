@@ -54,7 +54,7 @@ p {
 }
 
 .marquee {
-  --gap: 4rem;
+  --gap: 2rem;
   position: relative;
   display: flex;
   overflow: hidden;
@@ -72,6 +72,7 @@ p {
   justify-content: space-around;
   gap: var(--gap);
   min-width: 100%;
+  align-items: center;
 }
 
 @keyframes scroll {
@@ -85,5 +86,5 @@ p {
 
 /* Enable animation */
 .enable-animation .marquee__content {
-  animation: scroll 24s linear infinite;
+  animation: scroll 8s linear infinite;
 }
