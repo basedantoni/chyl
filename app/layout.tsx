@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import VideoProvider from "@/context/VideoProvider";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({ subsets: ["latin"] });
 const space = Space_Grotesk({
@@ -25,14 +26,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} ${space.className}`}>
-        <VideoProvider>
-          <LayloProvider>
-            <div className='sm:hidden'>
-              <Navigation />
-            </div>
-            {children}
-          </LayloProvider>
-        </VideoProvider>
+        <SmoothScroll>
+          <VideoProvider>
+            <LayloProvider>
+              <div className='sm:hidden'>
+                <Navigation />
+              </div>
+              {children}
+            </LayloProvider>
+          </VideoProvider>
+        </SmoothScroll>
       </body>
     </html>
   );
