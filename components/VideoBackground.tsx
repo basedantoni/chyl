@@ -126,8 +126,8 @@ export default function VideoBackground({ videos }: Props) {
               onMouseLeave={() => setVideoUrl(defaultVideo)}
               onClick={toggleOverlay}
             >
-              <span className="text-5xl leading-[0.8]">Join</span>
-              <span className="text-2xl leading-[0.8] tracking-tighter">the Team</span>
+              <span className="text-6xl leading-[0.8]">Join</span>
+              <span className="text-3xl leading-[0.8] tracking-tighter">the Team</span>
             </button>
           </ul>
 
@@ -190,8 +190,8 @@ export default function VideoBackground({ videos }: Props) {
               onMouseLeave={() => setVideoUrl(defaultVideo)}
               onClick={toggleOverlay}
             >
-              <span className="text-5xl leading-[0.8]">Join</span>
-              <span className="text-2xl leading-[0.8] tracking-tighter">the Team</span>
+              <span className="text-6xl leading-[0.8]">Join</span>
+              <span className="text-3xl leading-[0.8] tracking-tighter">the Team</span>
             </button>
           </ul>
         </div>
