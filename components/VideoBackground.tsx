@@ -71,7 +71,7 @@ export default function VideoBackground({ videos }: Props) {
           )}
         </div>
         <div className="marquee enable-animation hover:pause">
-          <ul className="marquee__content text-center font-bold text-8xl sm:text-8xl uppercase hover:cursor-pointer">
+          <ul className="marquee__content text-center font-bold text-4xl sm:text-8xl uppercase hover:cursor-pointer">
             <Link
               className="hover:text-orange-500 word"
               onMouseEnter={() => setVideoUrl(videos[4].videoAsset.url)}
@@ -126,14 +126,14 @@ export default function VideoBackground({ videos }: Props) {
               onMouseLeave={() => setVideoUrl(defaultVideo)}
               onClick={toggleOverlay}
             >
-              <span className="text-6xl leading-[0.8]">Join</span>
-              <span className="text-3xl leading-[0.8] tracking-tighter">the Team</span>
+              <span className="text-2xl sm:text-6xl leading-[0.8] sm:leading-[0.8]">Join</span>
+              <span className="text-xs sm:text-3xl leading-[0.8] sm:leading-[0.8] tracking-tighter">the Team</span>
             </button>
           </ul>
 
           {/* MIRROR CONTENT */}
           <ul
-            className="marquee__content text-center font-bold text-8xl sm:text-8xl uppercase hover:cursor-pointer"
+            className="marquee__content text-center font-bold text-4xl sm:text-8xl uppercase hover:cursor-pointer"
             aria-hidden="true"
           >
             <Link
@@ -190,8 +190,8 @@ export default function VideoBackground({ videos }: Props) {
               onMouseLeave={() => setVideoUrl(defaultVideo)}
               onClick={toggleOverlay}
             >
-              <span className="text-6xl leading-[0.8]">Join</span>
-              <span className="text-3xl leading-[0.8] tracking-tighter">the Team</span>
+              <span className="text-2xl sm:text-6xl leading-[0.8] sm:leading-[0.8]">Join</span>
+              <span className="text-xs sm:text-3xl leading-[0.8] sm:leading-[0.8] tracking-tighter">the Team</span>
             </button>
           </ul>
         </div>

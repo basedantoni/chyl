@@ -91,5 +91,5 @@ p {
 
 /* Enable animation */
 .enable-animation .marquee__content {
-  animation: scroll 6s linear infinite;
+  animation: scroll 5s linear infinite;
 }
