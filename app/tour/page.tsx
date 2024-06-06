@@ -39,7 +39,7 @@ export default function Tour() {
           data-local-dates-position="tab"
           data-display-past-dates="true"
           data-display-details="false"
-          data-display-lineup="true"
+          data-display-lineup="false"
           data-display-start-time=""
           data-social-share-icon="true"
           data-display-limit="all"
