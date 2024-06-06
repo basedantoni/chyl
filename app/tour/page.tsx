@@ -4,7 +4,7 @@ import Script from "next/script";
 
 export default function Tour() {
   return (
-    <main className="flex flex-col items-center justify-stretch gap-20 px-5 pt-24 lg:px-40 lg:pt-10 xl:pt-16 h-full pb-24">
+    <main className="flex flex-col items-center justify-stretch px-5 pt-24 lg:px-40 lg:pt-10 xl:pt-16 h-full pb-24">
       <Script src="https://widgetv3.bandsintown.com/main.min.js"></Script>
       <div className="flex gap-2.5">
         <h1 className="hidden sm:block font-moki self-end uppercase text-xl xl:text-6xl">
@@ -21,7 +21,7 @@ export default function Tour() {
           alt="cover"
         />
       </div>
-      <div className="flex w-full flex-col items-stretch gap-16">
+      <div className="flex w-full flex-col items-stretch">
         <a className="bit-widget-initializer"
           data-artist-name="id_15505182"
           
