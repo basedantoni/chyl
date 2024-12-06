@@ -5,6 +5,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import VideoProvider from "@/context/VideoProvider";
 import SmoothScroll from "@/components/SmoothScroll";
+import MetaPixel from "@/components/pixel/MetaPixel";
 
 const inter = Inter({ subsets: ["latin"] });
 const space = Space_Grotesk({
@@ -39,7 +40,20 @@ export default function RootLayout({
                 <Navigation />
               </div>
               {children}
-
+              <MetaPixel />
+              <noscript
+                id="meta-pixel-noscript"
+                dangerouslySetInnerHTML={{
+                  __html: `
+                                          <img
+                                            height="1"
+                                            width="1"
+                                            style={{ display: "none" }}
+                                            src="https://www.facebook.com/tr?id=574999218820481&ev=PageView&noscript=1"
+                                          />
+                                ` }}
+              >
+              </noscript>
             </LayloProvider>
           </VideoProvider>
         </SmoothScroll>
