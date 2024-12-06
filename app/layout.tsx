@@ -3,9 +3,11 @@ import LayloProvider from "@/context/LayloProvider";
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
+import Head from "next/head";
 import "./globals.css";
 import VideoProvider from "@/context/VideoProvider";
 import SmoothScroll from "@/components/SmoothScroll";
+import MetaPixel from "@/components/pixel/MetaPixel";
 
 const inter = Inter({ subsets: ["latin"] });
 const space = Space_Grotesk({
@@ -26,15 +28,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
+      <Head>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/manifest.webmanifest" />
-
-        {/* Meta Pixel */}
-        <Script id="meta-pixel" strategy="afterInteractive">
-          {`
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=574999218820481&ev=PageView&noscript=1"
+          />
+        </noscript>
+      </Head>
+      {/* Meta Pixel */}
+      <Script id="meta-pixel" strategy="afterInteractive">
+        {`
               !function(f,b,e,v,n,t,s)
               {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
               n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -45,9 +55,10 @@ export default function RootLayout({
               'https://connect.facebook.net/en_US/fbevents.js');
                fbq('init', '574999218820481'); 
               fbq('track', 'PageView');           
-          `}
-        </Script>
-      </head>
+        `}
+      </Script>
+
+
       <body className={`${inter.className} ${space.className}`}>
         <SmoothScroll>
           <VideoProvider>
@@ -56,14 +67,7 @@ export default function RootLayout({
                 <Navigation />
               </div>
               {children}
-              <noscript>
-                <img
-                  height="1"
-                  width="1"
-                  src="https://www.facebook.com/tr?id=574999218820481&ev=PageView&noscript=1"
-                  alt="meta-pixel"
-                />
-              </noscript>
+              <MetaPixel />
             </LayloProvider>
           </VideoProvider>
         </SmoothScroll>
